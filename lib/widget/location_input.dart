@@ -55,15 +55,37 @@ class _LocationInputState extends State<LocationInput> {
       children: [
         Container(
           decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.grey),
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.white,
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromARGB(255, 177, 173, 173),
+                blurRadius: 5.0,
+                offset: Offset(0, 5),
+              ),
+              BoxShadow(
+                color: Colors.transparent,
+                blurRadius: 5.0,
+                offset: Offset(-5, 0),
+              ),
+              BoxShadow(
+                color: Colors.transparent,
+                blurRadius: 5.0,
+                offset: Offset(5, 0),
+              ),
+            ],
           ),
           alignment: Alignment.center,
           height: 170,
           width: double.infinity,
           child: _previewImage == null
-              ? Text(
+              ? const Text(
                   'No location chosen',
                   textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 16,
+                  ),
                 )
               : Image.network(
                   _previewImage!,
@@ -76,13 +98,23 @@ class _LocationInputState extends State<LocationInput> {
           children: [
             TextButton.icon(
               onPressed: _getLocation,
-              icon: Icon(Icons.location_on),
-              label: Text('Current location'),
+              icon: const Icon(Icons.location_on),
+              label: const Text(
+                'Current location',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
             ),
             TextButton.icon(
               onPressed: _selectLocation,
-              icon: Icon(Icons.map),
-              label: Text('Choose location :)'),
+              icon: const Icon(Icons.map),
+              label: const Text(
+                'Choose location :)',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
             ),
           ],
         )

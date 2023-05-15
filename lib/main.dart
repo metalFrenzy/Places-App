@@ -19,9 +19,10 @@ class MyApp extends StatelessWidget {
       create: (context) => PlacesProv(),
       child: MaterialApp(
         title: 'Great Places ',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          fontFamily: 'Raleway',
           primarySwatch: Colors.indigo,
-          accentColor: Colors.amber,
         ),
         home: PlacesListScreen(),
         routes: {

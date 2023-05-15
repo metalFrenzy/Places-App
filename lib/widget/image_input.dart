@@ -47,7 +47,27 @@ class _ImageInputState extends State<ImageInput> {
           width: 150,
           height: 150,
           decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.grey),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(
+              20,
+            ),
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromARGB(255, 177, 173, 173),
+                blurRadius: 5.0,
+                offset: Offset(0, 5),
+              ),
+              BoxShadow(
+                color: Colors.transparent,
+                blurRadius: 5.0,
+                offset: Offset(-5, 0),
+              ),
+              BoxShadow(
+                color: Colors.transparent,
+                blurRadius: 5.0,
+                offset: Offset(5, 0),
+              ),
+            ],
           ),
           child: _storedImage != null
               ? Image.file(
@@ -55,18 +75,27 @@ class _ImageInputState extends State<ImageInput> {
                   fit: BoxFit.cover,
                   width: double.infinity,
                 )
-              : Text('add photo bruv'),
+              : const Text(
+                  'No image chosen',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 16,
+                  ),
+                ),
           alignment: Alignment.center,
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         TextButton.icon(
           onPressed: () {
             _takeImage();
           },
-          icon: Icon(Icons.camera),
-          label: Text('Take/Select photo'),
+          icon: const Icon(Icons.camera),
+          label: const Text(
+            'Take/Select photo',
+            style: TextStyle(fontSize: 16),
+          ),
         ),
       ],
     );

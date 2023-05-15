@@ -25,7 +25,7 @@ class PlaceDetailsScreen extends StatelessWidget {
               width: double.infinity,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(
@@ -36,7 +36,7 @@ class PlaceDetailsScreen extends StatelessWidget {
               color: Colors.blueGrey,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           TextButton(
@@ -50,7 +50,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                 ),
               );
             },
-            child: Text('Open in maps'),
+            child: const Text('Open in maps'),
           )
         ],
       ),

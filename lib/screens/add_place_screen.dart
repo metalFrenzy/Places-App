@@ -50,7 +50,7 @@ class _AddPlaceState extends State<AddPlace> {
     }
     _form.currentState!.save();
     Provider.of<PlacesProv>(context, listen: false)
-        .addPlace(_place.title!, _pickedImage!,_pickedLocation!);
+        .addPlace(_place.title!, _pickedImage!, _pickedLocation!);
     Navigator.of(context).pop();
   }
 
@@ -58,7 +58,11 @@ class _AddPlaceState extends State<AddPlace> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add a new Place :)'),
+        centerTitle: true,
+        title: const Text(
+          'Add a new Place :)',
+          style: TextStyle(fontSize: 22),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -66,35 +70,59 @@ class _AddPlaceState extends State<AddPlace> {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Form(
                   key: _form,
                   child: Column(
                     children: [
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: 'Enter the name of the Place !',
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow:const  [
+                              BoxShadow(
+                                color: Color.fromARGB(255, 177, 173, 173),
+                                blurRadius: 5.0,
+                                offset: Offset(0, 5),
+                              ),
+                              BoxShadow(
+                                color: Colors.transparent,
+                                blurRadius: 5.0,
+                                offset: Offset(-5, 0),
+                              ),
+                              BoxShadow(
+                                color: Colors.transparent,
+                                blurRadius: 5.0,
+                                offset: Offset(5, 0),
+                              ),
+                            ]),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Enter the name of the Place !',
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter a value';
+                            }
+                            return null;
+                          },
+                          onSaved: (newValue) {
+                            _place = Place(
+                              id: null,
+                              title: newValue,
+                              location: _place.location,
+                              image: _place.image,
+                            );
+                          },
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter a value';
-                          }
-                          return null;
-                        },
-                        onSaved: (newValue) {
-                          _place = Place(
-                            id: null,
-                            title: newValue,
-                            location: _place.location,
-                            image: _place.image,
-                          );
-                        },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       ImageInput(_selectImage),
-                      SizedBox(
+                     const  SizedBox(
                         height: 20,
                       ),
                       LocationInput(_selectPlace),
@@ -108,11 +136,17 @@ class _AddPlaceState extends State<AddPlace> {
             style: ElevatedButton.styleFrom(
               elevation: 0.0,
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              backgroundColor: Theme.of(context).accentColor,
+              backgroundColor: Colors.orange,
             ),
             onPressed: _saveForm,
             icon: Icon(Icons.add),
-            label: Text('Add the place'),
+            label: const Text(
+              'Add the place',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+              ),
+            ),
           ),
         ],
       ),
