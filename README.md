@@ -1,8 +1,11 @@
-# places_app
+# Places App
+I used the provider package for state management solution for handling the data of the places. I also used the image_picker package which is a plugin for picking images from the library and taking new pictures with the camera. Furthermore, I used the path and the path_provider so I can store the image of the place inside the storage of the device in a known location. I used the sqlflite package which is SQLite plugin for Flutter so I can store the places inside a database.    
 
-A new Flutter project.
 
-## Getting Started
+
+## Main Packages
+
+I used the provider package for state management solution for handling the data of the places. 
 
 This project is a starting point for a Flutter application.
 
