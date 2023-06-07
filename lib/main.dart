@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Raleway',
           primarySwatch: Colors.indigo,
+          canvasColor: Color.fromARGB(255, 212, 217, 237),
         ),
         home: PlacesListScreen(),
         routes: {
