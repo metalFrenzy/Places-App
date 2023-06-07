@@ -15,11 +15,12 @@ class PlaceList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final place = Provider.of<PlacesProv>(context);
     return Dismissible(
       direction: DismissDirection.endToStart,
       key: UniqueKey(),
       background: Container(
-        color: Theme.of(context).errorColor,
+        color: Theme.of(context).colorScheme.error,
         child: const Icon(
           Icons.delete,
           color: Colors.white,
@@ -33,10 +34,7 @@ class PlaceList extends StatelessWidget {
         ),
       ),
       onDismissed: ((direction) {
-        Provider.of<PlacesProv>(
-          context,
-          listen: false,
-        ).removePlace(id);
+        place.removePlace(id);
       }),
       child: Card(
         margin: EdgeInsets.symmetric(
