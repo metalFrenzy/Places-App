@@ -56,7 +56,7 @@ class _LocationInputState extends State<LocationInput> {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Colors.white,
+            color: Color.fromARGB(255, 199, 207, 238),
             boxShadow: const [
               BoxShadow(
                 color: Color.fromARGB(255, 177, 173, 173),
@@ -83,14 +83,17 @@ class _LocationInputState extends State<LocationInput> {
                   'No location chosen',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: Colors.indigo,
                     fontSize: 16,
                   ),
                 )
-              : Image.network(
-                  _previewImage!,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
+              : ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    _previewImage!,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
                 ),
         ),
         Row(

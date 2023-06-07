@@ -47,7 +47,7 @@ class _ImageInputState extends State<ImageInput> {
           width: 150,
           height: 150,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color.fromARGB(255, 199, 207, 238),
             borderRadius: BorderRadius.circular(
               20,
             ),
@@ -81,7 +81,7 @@ class _ImageInputState extends State<ImageInput> {
               : const Text(
                   'No image chosen',
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: Colors.indigo,
                     fontSize: 16,
                   ),
                 ),

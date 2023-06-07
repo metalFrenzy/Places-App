@@ -78,29 +78,16 @@ class _AddPlaceState extends State<AddPlace> {
                       Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow:const  [
-                              BoxShadow(
-                                color: Color.fromARGB(255, 177, 173, 173),
-                                blurRadius: 5.0,
-                                offset: Offset(0, 5),
-                              ),
-                              BoxShadow(
-                                color: Colors.transparent,
-                                blurRadius: 5.0,
-                                offset: Offset(-5, 0),
-                              ),
-                              BoxShadow(
-                                color: Colors.transparent,
-                                blurRadius: 5.0,
-                                offset: Offset(5, 0),
-                              ),
-                            ]),
+                          color: Color.fromARGB(255, 199, 207, 238),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         child: TextFormField(
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Enter the name of the Place !',
+                            hintStyle: TextStyle(
+                              color: Colors.indigo,
+                            ),
                           ),
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -122,7 +109,7 @@ class _AddPlaceState extends State<AddPlace> {
                         height: 20,
                       ),
                       ImageInput(_selectImage),
-                     const  SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       LocationInput(_selectPlace),
@@ -134,17 +121,20 @@ class _AddPlaceState extends State<AddPlace> {
           ),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              elevation: 0.0,
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              backgroundColor: Colors.orange,
-            ),
+                elevation: 0.0,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                backgroundColor: Colors.indigo),
             onPressed: _saveForm,
-            icon: Icon(Icons.add),
+            icon: Icon(
+              Icons.add,
+              color: Colors.cyanAccent,
+            ),
             label: const Text(
               'Add the place',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 15,
+                fontSize: 17,
+                color: Colors.cyanAccent,
               ),
             ),
           ),
